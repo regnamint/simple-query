@@ -1,0 +1,75 @@
+.margin-top {
+  margin-top: 15px !important;
+}
+.margin-bottom {
+  margin-bottom: 15px !important;
+}
+
+code {
+  color: #000;
+}
+
+code i {
+  color: #18a367;
+}
+
+.row {
+  margin: 10px 0px;
+}
+
+.accordion-item {
+  margin-top: 0px !important;
+  margin-bottom: 0px;
+}
+.accordion-button.collapsed {
+  box-shadow: none;
+}
+.accordion-button:not(.collapsed) {
+  color: #18a367;
+  background-color: rgba(24, 163, 101, 0.08);
+  outline: rgba(24, 163, 101, 0.08);
+  outline-color: rgba(24, 163, 101, 0.08);
+  outline-style: initial;
+  outline-width: initial;
+  box-shadow: none;
+}
+.accordion-collapse,
+.accordion-body {
+  margin-top: 0px !important;
+}
+
+.errormsg {
+  margin-top: 5px;
+  text-align: right;
+  font-size: 10px;
+  color: red;
+  display: none;
+}
+
+.querytype {
+  width: 100%;
+  height: 100px;
+}
+
+.selectQuery {
+  margin-top: 10px;
+  text-align: left;
+  color: #666;
+}
+
+.selectColumn {
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.selectcolumnblock {
+  display: none;
+}
+.columnaddremove {
+  margin-top: 10px;
+  text-align: right;
+}
+.addcolumn {
+}

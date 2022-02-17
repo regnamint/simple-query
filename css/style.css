@@ -1,6 +1,54 @@
+/*modify from bootstrap*/
+
+.accordion-item {
+  margin-top: 0px !important;
+  margin-bottom: 0px;
+}
+
+.accordion-button.collapsed {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #18a367;
+  background-color: rgba(24, 163, 101, 0.08);
+  outline: rgba(24, 163, 101, 0.08);
+  outline-color: rgba(24, 163, 101, 0.08);
+  outline-style: initial;
+  outline-width: initial;
+  box-shadow: none;
+}
+
+.accordion-collapse,
+.accordion-body {
+  margin-top: 0px !important;
+}
+
+.input-group-text {
+  background-color: #fff!important;
+}
+
+input[type='text'].form-control {
+  font-style: italic!important;
+  color: #18a367!important;
+}
+
+
+
+
+/*original style*/
+.show {
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
 .margin-top {
   margin-top: 15px !important;
 }
+
 .margin-bottom {
   margin-bottom: 15px !important;
 }
@@ -13,29 +61,13 @@ code i {
   color: #18a367;
 }
 
-.row {
-  margin: 10px 0px;
+.codestyle {
+  font-size: .875em!important;
+  word-wrap: break-word!important;
 }
 
-.accordion-item {
-  margin-top: 0px !important;
-  margin-bottom: 0px;
-}
-.accordion-button.collapsed {
-  box-shadow: none;
-}
-.accordion-button:not(.collapsed) {
-  color: #18a367;
-  background-color: rgba(24, 163, 101, 0.08);
-  outline: rgba(24, 163, 101, 0.08);
-  outline-color: rgba(24, 163, 101, 0.08);
-  outline-style: initial;
-  outline-width: initial;
-  box-shadow: none;
-}
-.accordion-collapse,
-.accordion-body {
-  margin-top: 0px !important;
+.row {
+  margin: 10px 0px;
 }
 
 .errormsg {
@@ -67,9 +99,21 @@ code i {
 .selectcolumnblock {
   display: none;
 }
-.columnaddremove {
-  margin-top: 10px;
-  text-align: right;
+
+.FlexForWhere {
+  display: flex;
 }
-.addcolumn {
+
+.FlexForWhere button.btn {
+  margin-right: 15px;
+}
+
+.FlexForWhere button {
+  margin-right: 10px;
+}
+
+.addromovebtn {
+  border: none;
+  background: none;
+  font-size: 11px;
 }

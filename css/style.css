@@ -1,5 +1,9 @@
 /*modify from bootstrap*/
 
+.row {
+  margin: 10px 0px;
+}
+
 .accordion-item {
   margin-top: 0px !important;
   margin-bottom: 0px;
@@ -70,10 +74,6 @@ code i {
   word-wrap: break-word!important;
 }
 
-.row {
-  margin: 10px 0px;
-}
-
 .errormsg,
 .errormsg-set {
   margin-top: 5px;
@@ -88,21 +88,11 @@ code i {
   height: 100px;
 }
 
-.selectQuery {
-  margin-top: 10px;
-  text-align: left;
-  color: #666;
-}
-
 .selectColumn {
   margin: 10px 0px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
-
-.selectcolumnblock {
-  display: none;
 }
 
 .FlexForWhere {

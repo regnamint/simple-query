@@ -7,6 +7,16 @@ $('document').ready(function() {
 
   $("#generateSelectQuery").on("click", function () {
     var selectTable = $('[name="selectFrom"]').val();
+    var selectColumn = $('[name="selectColumn"').val();
+    selectColumn = selectColumn==""?"*":selectColumn;
+
+    var selectJoin = $('[name="selectJoin"').val();
+    var selectGroupBy = $('[name="selectGroupBy"').val();
+    selectGroupBy = selectGroupBy==""?"":" GROUP BY "+selectGroupBy;
+    var selectHaving = $('[name="selectHaving"').val();
+    selectHaving = selectHaving==""?"":" HAVING "+selectHaving;
+    var selectOrderBy = $('[name="selectOrderBy"').val();
+    selectOrderBy = selectOrderBy==""?"":" ORDER BY "+selectOrderBy;
 
     if (selectTable == "") {
       show("#selectModal .errormsg");
@@ -16,8 +26,33 @@ $('document').ready(function() {
 
       var selectWhereCondition = generateWhereCondition('select');
       $(".selectQuery").html(
-        "SELECT " + selectColumnText + " FROM " + selectTable + selectWhereCondition
+        "SELECT " + selectColumn + " FROM " + selectTable + " " +selectJoin + selectWhereCondition + selectGroupBy + selectHaving + selectOrderBy
       );
+    }
+  });
+
+  $("#generateInsertQuery").on("click", function () {
+    var insertTable = $('[name="insertTo"]').val();
+    var insertToColumns = $('[name="insertToColumns"').val();
+    insertToColumns = insertToColumns==""?"":" ("+insertToColumns+")";
+    var insertValues = $('[name="insertSet"').val();
+    insertValues = insertValues==""?"":" ("+insertValues+") ";
+
+    if (insertTable == "") {
+      show("#insertModal .errormsg");
+      $(".insertQuery").html("");
+    } else {
+      hide("#insertModal .errormsg")
+
+      if (insertValues == "") {
+        show("#insertModal .errormsg-set");
+      } else {
+        hide("#insertModal .errormsg-set");
+
+        $(".insertQuery").html(
+          "INSERT INTO " + insertTable + insertToColumns + " VALUES" + insertValues
+        );
+      }
     }
   });
 

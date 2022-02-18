@@ -92,7 +92,6 @@
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-
                 <code>
                   UPDATE <i>table_name</i> <br>
                   SET <i>column1 = value1, column2 = value2...., columnN = valueN</i> <br>
@@ -131,32 +130,65 @@
             <div class="row">
               <div class="col-12">
                 <div class="input-group">
-                  <label class="input-group-text" for="selectColumn">SELECT</label>
-                  <select class="form-select" id="selectColumn">
-                    <option selected value="all">All</option>
-                    <option value="specific">Specific</option>
-                  </select>
+                  <label class="input-group-text" for="selectColumn"><code>SELECT</code></label>
+                  <input id="selectColumn" name="selectColumn" type="text" class="form-control" value="*" aria-label="selectColumn" aria-describedby="addon-wrapping">
                 </div>
-                <div class="col-12 selectcolumnblock">
-                  <div class="col-12 columnaddremove">
-                    <button id="addcolumnbutton" type="button" class="btn columnaddremovebutton"><i class="fas fa-plus"></i></button>
-                    <button id="removecolumnbutton" type="button" class="btn columnaddremovebutton"><i class="fas fa-minus"></i></button>
-                  </div>
-                  <div class="selectColumn"></div>
-                </div>
+                <div class="errormsg-column hide">Please fill in the column to select.</div>
               </div>
             </div>
-            <br>
             <div class="row">
               <div class="col-12">
                 <div class="input-group">
-                  <label class="input-group-text" for="selectFrom">FROM</label>
-                  <input id="selectFrom" name="selectFrom" type="text" class="form-control" placeholder="Table to SELECT" aria-label="selectTable" aria-describedby="addon-wrapping">
+                  <label class="input-group-text" for="selectFrom"><code>FROM</code></label>
+                  <input id="selectFrom" name="selectFrom" type="text" class="form-control" aria-label="selectFrom" aria-describedby="addon-wrapping">
                 </div>
-                <div class="errormsg">Please fill in the table's name.</div>
+                <div class="errormsg hide">Please fill in the column to select.</div>
               </div>
             </div>
-            <br>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <label class="input-group-text" for="selectJoin"><code>JOIN</code></label>
+                  <input id="selectJoin" name="selectJoin" type="text" class="form-control" aria-label="selectJoin" aria-describedby="addon-wrapping">
+                </div>
+              </div>
+            </div>
+            <div class="row margin-top">
+              <div class="col-12 FlexForWhere">
+                <button type="button" id="selectHaveWhereCondition" class="btn btn-secondary codestyle">WHERE</button>
+                <div class="selectWhereConditionAddRemove hide">
+                  <button id="selectWhereConditionAddBtn" type="button" class="addromovebtn"><i class="fas fa-plus"></i></button>
+                  <button id="selectWhereConditionRemoveBtn" type="button" class="addromovebtn"><i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="row margin-top">
+              <div class="col-12 selectWhereConditionBlock"></div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <label class="input-group-text" for="selectGroupBy"><code>GROUP BY</code></label>
+                  <input id="selectGroupBy" name="selectGroupBy" type="text" class="form-control" aria-label="selectGroupBy" aria-describedby="addon-wrapping">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <label class="input-group-text" for="selectHaving"><code>HAVING</code></label>
+                  <input id="selectHaving" name="selectHaving" type="text" class="form-control" aria-label="selectHaving" aria-describedby="addon-wrapping">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <label class="input-group-text" for="selectOrderBy"><code>ORDER BY</code></label>
+                  <input id="selectOrderBy" name="selectOrderBy" type="text" class="form-control" aria-label="selectOrderBy" aria-describedby="addon-wrapping">
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div class="col-12">
                 <div class="selectQuery"></div>
@@ -165,6 +197,127 @@
           </div>
           <div class="modal-footer">
             <button type="button" id="generateSelectQuery" class="btn btn-primary">Generate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="insertModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="insertModalLabel">INSERT Query</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <label class="input-group-text" for="insertTo"><code>INSERT INTO</code></label>
+                  <input id="insertto" name="insertTo" type="text" class="form-control" aria-label="insertTo" aria-describedby="addon-wrapping">
+                </div>
+                <div class="errormsg hide">Please fill in the table's name.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label class="visually-hidden" for="insertToColumns" ><code>INSERT INTO</code></label>
+                  <input id="insertToColumns" name="insertToColumns" type="text" class="form-control" aria-label="insertToColumns" aria-describedby="addon-wrapping">
+                </div>
+                <div class="errormsg hide">Please fill in the table's name.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <label class="input-group-text" for="insertSet"><code>VALUES</code></label>
+                  <input id="insertSet" name="insertSet" type="text" class="form-control" aria-label="insertSet" aria-describedby="addon-wrapping">
+                </div>
+                <div class="errormsg-set hide">Please fill in value to update.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="insertQuery"></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="generateInsertQuery" class="btn btn-success">Generate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updateModalLabel">UPDATE Query</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row margin-bottom">
+              <div class="col-12">
+                <div class="input-group">
+                  <label class="input-group-text" for="updateFrom"><code>UPDATE</code></label>
+                  <input id="updateFrom" name="updateFrom" type="text" class="form-control" aria-label="updateFrom" aria-describedby="addon-wrapping">
+                </div>
+                <div class="errormsg hide">Please fill in the table's name.</div>
+              </div>
+            </div>
+            <div class="row margin-top-25">
+              <div class="col-12 FlexForWhere">
+                <button type="button" id="updateSet" class="btn btn-warning codestyle">SET</button>
+                <div class="updateSetAddRemove show">
+                  <button id="updateSetAddBtn" type="button" class="addromovebtn"><i class="fas fa-plus"></i></button>
+                  <button id="updateSetRemoveBtn" type="button" class="addromovebtn"><i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 updateColumnBlock">
+                <div class="row">
+                  <div class="col-3 col-lg-3">
+                    <label for="updateColumnKey1" class="visually-hidden">Key 1</label>
+                    <input type="text" class="form-control" id="updateColumnKey1" placeholder="Key 1">
+                  </div>
+                  <div class="col-3 col-lg-3">=</div>
+                  <div class="col-3 col-lg-3">
+                    <select id="updateColumnDataType1" class="form-select" aria-label="Default select example">
+                      <option value="string">String</option>
+                      <option value="number">Number</option>
+                    </select>
+                  </div>
+                  <div class="col-3 col-lg-3">
+                    <label for="updateColumnValue1" class="visually-hidden">Key 1</label>
+                    <input type="text" class="form-control" id="updateColumnValue1" placeholder="Value 1">
+                  </div>
+                </div>
+              </div>
+              <div class="errormsg-set hide">Please fill in the value to update.</div>
+            </div>
+            <div class="row margin-top">
+              <div class="col-12 FlexForWhere">
+                <button type="button" id="updateHaveWhereCondition" class="btn btn-secondary codestyle">WHERE</button>
+                <div class="updateWhereConditionAddRemove hide">
+                  <button id="updateWhereConditionAddBtn" type="button" class="addromovebtn"><i class="fas fa-plus"></i></button>
+                  <button id="updateWhereConditionRemoveBtn" type="button" class="addromovebtn"><i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 updateWhereConditionBlock"></div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="updateQuery"></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="generateUpdateQuery" class="btn btn-warning">Generate</button>
           </div>
         </div>
       </div>
@@ -184,7 +337,7 @@
                   <label class="input-group-text" for="deleteFrom"><code>DELETE FROM</code></label>
                   <input id="deleteFrom" name="deleteFrom" type="text" class="form-control" aria-label="deleteFrom" aria-describedby="addon-wrapping">
                 </div>
-                <div class="errormsg">Please fill in the table's name.</div>
+                <div class="errormsg hide">Please fill in the table's name.</div>
               </div>
             </div>
             <div class="row margin-top">
@@ -206,7 +359,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="generateDeleteQuery" class="btn btn-primary">Generate</button>
+            <button type="button" id="generateDeleteQuery" class="btn btn-danger">Generate</button>
           </div>
         </div>
       </div>
